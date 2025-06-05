@@ -1,7 +1,8 @@
 // Copyright 2022 NNTU-CS
-#include "tree.h"
 #include <stdexcept>
 #include <algorithm>
+
+#include "tree.h"
 
 PMTree::PMTree(const std::vector<char>& input) : elements(input) {
     if (input.empty()) {
