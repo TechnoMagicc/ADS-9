@@ -1,6 +1,8 @@
 // Copyright 2022 NNTU-CS
 #include <stdexcept>
 #include <algorithm>
+#include <memory>
+#include <vector>
 
 #include "tree.h"
 
@@ -82,7 +84,7 @@ void PMTree::getPerm1Helper(std::shared_ptr<Node> node,
                            int& counter, int target,
                            std::vector<char>& result) const {
     if (!result.empty()) return;
-    
+
     if (node->value != '\0') {
         current.push_back(node->value);
     }
@@ -130,13 +132,13 @@ void PMTree::getPerm2Helper(std::shared_ptr<Node> node,
     } else {
         for (const auto& child : node->children) {
             if (remaining < 0) break;
-            
+
             int subtree_size = factorial(node->children.size() - 1);
             if (remaining >= subtree_size) {
                 remaining -= subtree_size;
                 continue;
             }
-            
+
             getPerm2Helper(child, current, remaining, result);
             break;
         }
