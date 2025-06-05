@@ -6,11 +6,11 @@
 #include <memory>
 
 class PMTree {
-  private:
+ private:
     struct Node {
         char value;
         std::vector<std::shared_ptr<Node>> children;
-        Node(char v) : value(v) {}
+        explicit Node(char v) : value(v) {}
     };
 
     std::shared_ptr<Node> root;
@@ -29,7 +29,7 @@ class PMTree {
                         int& remaining, std::vector<char>& result) const;
     int factorial(int n) const;
 
-  public:
+ public:
     explicit PMTree(const std::vector<char>& input);
     std::vector<std::vector<char>> getAllPerms() const;
     std::vector<char> getPerm1(int num) const;
