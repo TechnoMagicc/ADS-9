@@ -17,11 +17,14 @@ class PMTree {
     int total_permutations;
     std::vector<char> elements;
 
-    void buildTree(std::shared_ptr<Node> parent, const std::vector<char>& remaining);
-    void getAllPermsHelper(std::shared_ptr<Node> node, std::vector<char>& current,
+    void buildTree(std::shared_ptr<Node> parent,
+        const std::vector<char>& remaining);
+    void getAllPermsHelper(std::shared_ptr<Node> node,
+        std::vector<char>& current,
                           std::vector<std::vector<char>>& result) const;
     void getPerm1Helper(std::shared_ptr<Node> node, std::vector<char>& current,
-                        int& counter, int target, std::vector<char>& result) const;
+                        int& counter, int target,
+                        std::vector<char>& result) const;
     void getPerm2Helper(std::shared_ptr<Node> node, std::vector<char>& current,
                         int& remaining, std::vector<char>& result) const;
     int factorial(int n) const;
